@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrum Master Selection | Curated for ARC by ChargeItSpot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --arc-gold: #FABE32;
+            --arc-gold-soft: #FCD06A;
+            --arc-gold-deep: #E5A820;
+            --arc-dark: #272727;
+            --arc-darker: #1A1A1A;
+            --arc-darkest: #13151A;
+            --arc-white: #FFFFFF;
+            --arc-light: #F7F7F7;
+            --arc-gray: #6B7280;
+            --arc-gray-light: #E5E7EB;
+            --arc-teal: #2A9D8F;
+            --arc-blue: #3B82F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--arc-darkest);
+            background: var(--arc-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER / HERO ===== */
+        .hero {
+            background: var(--arc-darker);
+            color: var(--arc-white);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-top-bar {
+            background: var(--arc-gold);
+            height: 4px;
+            width: 100%;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .hero-brand .logo-text {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--arc-white);
+        }
+
+        .hero-brand .logo-accent {
+            width: 36px;
+            height: 3px;
+            background: var(--arc-gold);
+            border-radius: 2px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(250, 190, 50, 0.12);
+            border: 1px solid rgba(250, 190, 50, 0.3);
+            color: var(--arc-gold);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.15s forwards;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 640px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.45s forwards;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hero-meta-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--arc-gold);
+        }
+
+        .hero-meta-value {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ===== EDITORIAL INTRO ===== */
+        .editorial {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .editorial-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--arc-gold-deep);
+            margin-bottom: 20px;
+        }
+
+        .editorial h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 28px;
+            color: var(--arc-darkest);
+        }
+
+        .editorial p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--arc-gray);
+            margin-bottom: 20px;
+        }
+
+        .editorial p strong {
+            color: var(--arc-darkest);
+            font-weight: 600;
+        }
+
+        .editorial-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--arc-gold);
+            border-radius: 2px;
+            margin: 48px 0;
+        }
+
+        /* ===== CANDIDATE CARDS ===== */
+        .candidates-section {
+            background: var(--arc-light);
+            padding: 80px 0;
+        }
+
+        .candidates-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            margin-bottom: 56px;
+        }
+
+        .candidates-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .candidates-header p {
+            font-size: 16px;
+            color: var(--arc-gray);
+        }
+
+        .candidate-card {
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            padding: 0 40px;
+        }
+
+        .card {
+            background: var(--arc-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 12px 48px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-top {
+            background: var(--arc-darker);
+            padding: 36px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .card-identity {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--arc-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--arc-darker);
+            flex-shrink: 0;
+        }
+
+        .card-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--arc-white);
+            margin-bottom: 4px;
+        }
+
+        .card-location {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-rate {
+            text-align: right;
+        }
+
+        .card-rate-amount {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--arc-gold);
+        }
+
+        .card-rate-period {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-body {
+            padding: 40px 44px;
+        }
+
+        .card-narrative {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--arc-gray);
+            margin-bottom: 32px;
+            font-style: italic;
+            border-left: 3px solid var(--arc-gold);
+            padding-left: 20px;
+        }
+
+        .card-narrative strong {
+            color: var(--arc-darkest);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .card-section-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--arc-darkest);
+            margin-bottom: 16px;
+            margin-top: 32px;
+        }
+
+        .card-section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        /* Experience Timeline */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .exp-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .exp-dot-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 6px;
+        }
+
+        .exp-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--arc-gold);
+            flex-shrink: 0;
+        }
+
+        .exp-line {
+            width: 2px;
+            flex: 1;
+            background: var(--arc-gray-light);
+            margin-top: 6px;
+        }
+
+        .exp-content {
+            flex: 1;
+            padding-bottom: 4px;
+        }
+
+        .exp-role {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--arc-darkest);
+        }
+
+        .exp-company {
+            font-size: 14px;
+            color: var(--arc-gray);
+        }
+
+        .exp-date {
+            font-size: 12px;
+            color: rgba(107, 114, 128, 0.7);
+            margin-top: 2px;
+        }
+
+        .exp-highlight {
+            font-size: 13px;
+            color: var(--arc-teal);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* Tags & Certifications */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            background: var(--arc-light);
+            color: var(--arc-darkest);
+            border: 1px solid var(--arc-gray-light);
+        }
+
+        .tag.cert {
+            background: rgba(250, 190, 50, 0.1);
+            border-color: rgba(250, 190, 50, 0.3);
+            color: var(--arc-gold-deep);
+            font-weight: 600;
+        }
+
+        .tag.highlight {
+            background: var(--arc-darker);
+            border-color: var(--arc-darker);
+            color: var(--arc-white);
+        }
+
+        /* Fit Indicators */
+        .fit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .fit-item {
+            background: var(--arc-light);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .fit-icon {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .fit-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--arc-gray);
+            margin-bottom: 4px;
+        }
+
+        .fit-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--arc-darkest);
+        }
+
+        /* Strength Bars */
+        .strength-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+
+        .strength-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .strength-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--arc-darkest);
+        }
+
+        .strength-bar-bg {
+            height: 6px;
+            background: var(--arc-light);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .strength-bar {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--arc-gold-deep), var(--arc-gold));
+            transition: width 1.5s ease;
+        }
+
+        /* ===== WHY THESE FOUR ===== */
+        .why-section {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .why-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 28px;
+        }
+
+        .why-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--arc-gray);
+            margin-bottom: 20px;
+        }
+
+        .why-section p strong {
+            color: var(--arc-darkest);
+            font-weight: 600;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+            font-size: 14px;
+        }
+
+        .comparison-table thead th {
+            background: var(--arc-darker);
+            color: var(--arc-white);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .comparison-table thead th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .comparison-table thead th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .comparison-table tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--arc-gray-light);
+            color: var(--arc-darkest);
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background: var(--arc-light);
+        }
+
+        .check {
+            color: var(--arc-teal);
+            font-weight: 700;
+        }
+
+        /* ===== FOOTER / CTA ===== */
+        .footer-cta {
+            background: var(--arc-darker);
+            color: var(--arc-white);
+            text-align: center;
+            padding: 72px 40px;
+        }
+
+        .footer-cta h2 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-cta h2 strong {
+            font-weight: 700;
+        }
+
+        .footer-cta p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 36px;
+        }
+
+        .footer-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--arc-gold);
+            color: var(--arc-darker);
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact:hover {
+            background: var(--arc-gold-soft);
+            transform: translateY(-1px);
+        }
+
+        .footer-bottom {
+            margin-top: 56px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-inner {
+                padding: 40px 24px 50px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .card-top {
+                flex-direction: column;
+                gap: 16px;
+                padding: 28px 24px;
+            }
+
+            .card-rate {
+                text-align: left;
+            }
+
+            .card-body {
+                padding: 28px 24px;
+            }
+
+            .fit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .strength-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .editorial, .why-section {
+                padding: 56px 24px;
+            }
+
+            .candidates-header, .candidate-card {
+                padding: 0 24px;
+            }
+
+            .comparison-table {
+                font-size: 12px;
+            }
+
+            .comparison-table thead th,
+            .comparison-table tbody td {
+                padding: 10px 8px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+
+        /* ===== RECRUITING TEAM ===== */
+        .team-section {
+            background: var(--arc-light);
+            padding: 80px 0;
+        }
+
+        .team-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .team-section .editorial-label {
+            margin-bottom: 16px;
+        }
+
+        .team-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            color: var(--arc-darkest);
+        }
+
+        .team-section .team-subtitle {
+            font-size: 16px;
+            color: var(--arc-gray);
+            max-width: 640px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 56px;
+        }
+
+        .team-card {
+            background: var(--arc-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 12px 48px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-card-top {
+            background: var(--arc-darker);
+            padding: 36px 24px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-photo {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--arc-gold);
+            margin-bottom: -48px;
+            position: relative;
+            z-index: 2;
+            background: var(--arc-darker);
+        }
+
+        .team-card-body {
+            padding: 60px 24px 32px;
+        }
+
+        .team-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--arc-darkest);
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--arc-gold-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+
+        .team-location {
+            font-size: 13px;
+            color: var(--arc-gray);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .team-bio {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--arc-gray);
+        }
+
+        .team-email {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--arc-gold-deep);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .team-email:hover {
+            color: var(--arc-gold);
+        }
+
+        /* Sagan Info */
+        .sagan-info {
+            background: var(--arc-white);
+            border-radius: 16px;
+            padding: 36px 40px;
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .sagan-logo-mark {
+            flex-shrink: 0;
+            width: 72px;
+            height: 72px;
+            background: var(--arc-darker);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--arc-white);
+            letter-spacing: -0.5px;
+        }
+
+        .sagan-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--arc-darkest);
+            margin-bottom: 8px;
+        }
+
+        .sagan-text p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--arc-gray);
+            margin: 0;
+        }
+
+        .sagan-text p strong {
+            color: var(--arc-darkest);
+            font-weight: 600;
+        }
+
+        .sagan-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 12px;
+        }
+
+        .sagan-stat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--arc-gray);
+        }
+
+        .sagan-stat strong {
+            color: var(--arc-gold-deep);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sagan-info {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 24px;
+            }
+
+            .sagan-stats {
+                justify-content: center;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .hero { break-after: page; }
+            .candidate-card { break-inside: avoid; }
+            .card:hover { transform: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+            .team-card:hover { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-top-bar"></div>
+        <div class="hero-inner">
+            <div class="hero-brand">
+                <div>
+                    <span class="logo-text">arc</span>
+                    <div class="logo-accent"></div>
+                </div>
+            </div>
+            <div class="hero-badge">Curated Talent Selection</div>
+            <h1>Your Next <strong>Scrum Master.</strong><br>Carefully Selected.</h1>
+            <p class="hero-subtitle">
+                Four professionals, handpicked for ARC's fast-scaling environment. Each brings the Scrum maturity to own three development teams from day one, the Jira depth to build the dashboards and reports you need, and the product-space fluency to understand the work &mdash; not just the framework.
+            </p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Role</span>
+                    <span class="hero-meta-value">Scrum Master</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Engagement</span>
+                    <span class="hero-meta-value">Contract to Full-Time</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Scope</span>
+                    <span class="hero-meta-value">3 of 9 Dev Teams (~7 devs each)</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Candidates</span>
+                    <span class="hero-meta-value">4 Presented</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDITORIAL INTRO ===== -->
+    <section class="editorial fade-in">
+        <div class="editorial-label">Our Selection Rationale</div>
+        <h2>Built for a Team That Grew from One to Nine &mdash; and Isn't Slowing Down</h2>
+        <p>
+            ChargeItSpot's project management team has scaled remarkably &mdash; from <strong>one development team to nine</strong>, each roughly seven developers strong. That kind of growth creates a very specific need: a mid-level Scrum Master who can <strong>own three of those teams solidly</strong>, run ceremonies with discipline, and navigate the natural work-process evolution that comes with fast scaling &mdash; without getting overwhelmed by it.
+        </p>
+        <p>
+            We heard clearly that this person needs to come from a <strong>product and software background</strong>. ARC's product lives at the intersection of software, mechanical engineering, and electrical engineering &mdash; and the closer a Scrum Master is to that world, the faster they'll earn the trust of their teams. People who understand <strong>QA automation, APIs, integrations, and data analytics</strong> will have a natural advantage facilitating standups and refinements with your engineers.
+        </p>
+        <p>
+            We also understand the structure: this mid-level hire will be <strong>supported by a senior Scrum Master</strong>, so we focused on candidates who are growth-oriented, coachable, and strong enough to operate independently across daily ceremonies &mdash; while being collaborative enough to align with your evolving PMO standards. And because your standups and refinements happen in the <strong>morning to early afternoon (US Eastern)</strong>, time zone overlap was a hard filter.
+        </p>
+        <div class="editorial-divider"></div>
+        <p style="font-size: 14px; color: var(--arc-gray);">
+            <strong style="color: var(--arc-darkest);">A note on our selection criteria:</strong> Scrum expertise is non-negotiable here &mdash; these are people who lead through the Agile framework, not just manage around it. We prioritized <strong>Jira fluency at the dashboard and reporting level</strong>, hands-on experience with QA and platform teams, and the kind of cultural fit and personality that integrates well with a tight-knit development team. Because ultimately, among technically qualified candidates, that's what will make the final difference.
+        </p>
+    </section>
+
+    <!-- ===== CANDIDATES ===== -->
+    <section class="candidates-section">
+        <div class="candidates-header fade-in">
+            <h2>The Selection</h2>
+            <p>Four candidates. Each one vetted against ARC's delivery standards, team culture, and growth trajectory.</p>
+        </div>
+
+        <!-- CANDIDATE 1: Rachel C. -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">RC</div>
+                        <div>
+                            <div class="card-name">Rachel C.</div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Brazil &middot; Remote &middot; Fluent English
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$3,800</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Rachel is the <strong>metrics-driven operator</strong> in this selection. With 6+ years as a dedicated Scrum Master across banking, healthcare, and AI/ML environments, she brings a level of sprint governance maturity that translates immediately to managing three dev teams of seven. Her track record of <strong>reducing lead times by 15&ndash;25% through Flow Metrics</strong> speaks directly to the delivery predictability ARC needs at this stage. She's built Jira dashboards, created reports in Power BI, and mentored seven Agile teams simultaneously &mdash; the closest match to your reporting and multi-team requirements. Based in Brazil, she has <strong>near-full overlap with US Eastern hours</strong>, ensuring she's present for every morning standup and afternoon refinement.
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Agile Project Manager / Scrum Master</div>
+                                <div class="exp-company">CrowdDoing &middot; Innovation</div>
+                                <div class="exp-date">Jan 2025 &ndash; Present</div>
+                                <div class="exp-highlight">Reduced lead time by 25% &middot; Increased developer retention by 10%</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Agile Project Manager</div>
+                                <div class="exp-company">DOMVS iT &middot; Consulting</div>
+                                <div class="exp-date">Mar 2023 &ndash; Mar 2024</div>
+                                <div class="exp-highlight">Mentored 7 Agile teams &middot; Bug resolution time reduced to 2 days</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Senior Project Manager | Scrum Master</div>
+                                <div class="exp-company">NTT DATA &middot; Technology & Consulting</div>
+                                <div class="exp-date">Oct 2021 &ndash; Mar 2023</div>
+                                <div class="exp-highlight">Increased digital transactions by 60% &middot; Reduced cycle time by 18%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Certifications & Tools</div>
+                    <div class="tags">
+                        <span class="tag cert">SAFe Practitioner</span>
+                        <span class="tag cert">Flow Metrics</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Azure DevOps</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Confluence</span>
+                        <span class="tag">Kanban</span>
+                        <span class="tag">Nexus</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">Jira Fluency</div>
+                            <div class="fit-value">Advanced</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Multi-Team Exp.</div>
+                            <div class="fit-value">7 Teams Mentored</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Metrics Driven</div>
+                            <div class="fit-value">Velocity, Burndown, Flow</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">Ceremony Facilitation</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 95%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Sprint Metrics & Reporting</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 95%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Blocker Identification</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Cross-Team Coordination</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CANDIDATE 2: Vinicius N. -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">VN</div>
+                        <div>
+                            <div class="card-name">Vinicius N.</div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Brazil &middot; Remote &middot; Trilingual (EN/ES/PT)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$4,200</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Vinicius is the <strong>closest direct-match to the role as described</strong>. He's currently facilitating ceremonies for <strong>QA Automation and Platform teams</strong> &mdash; the exact team types this hire will support at ARC. He holds PSM I, PSPO I, CAPM, and Lean Six Sigma Green Belt &mdash; the broadest credential set in this selection. His 25% sprint predictability improvement and 95% on-time release rate tell you he keeps boards clean and sprints on track. He's also pursuing an <strong>MBA at USP</strong>, which signals long-term strategic thinking &mdash; the kind of person who grows with the role as ARC's PMO matures. Based in Brazil, he offers <strong>full US Eastern time zone overlap</strong> and is trilingual (English, Spanish, Portuguese).
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Scrum Master</div>
+                                <div class="exp-company">Upwork &middot; Technology</div>
+                                <div class="exp-date">Jun 2025 &ndash; Present</div>
+                                <div class="exp-highlight">QA Automation & Platform teams &middot; 95% on-time release rate</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Project Manager</div>
+                                <div class="exp-company">FASTSIGNS USA &middot; Franchise Operations</div>
+                                <div class="exp-date">Jul 2024 &ndash; Jun 2025</div>
+                                <div class="exp-highlight">10-project portfolio &middot; 15-person international team &middot; 95% on-time delivery</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Construction Project Manager</div>
+                                <div class="exp-company">EBM Desenvolvimento Imobiliario</div>
+                                <div class="exp-date">Jan 2023 &ndash; Jun 2024</div>
+                                <div class="exp-highlight">90% milestone adherence &middot; Cost variance below 5%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Certifications & Tools</div>
+                    <div class="tags">
+                        <span class="tag cert">PSM I</span>
+                        <span class="tag cert">PSPO I</span>
+                        <span class="tag cert">CAPM</span>
+                        <span class="tag cert">Lean Six Sigma Green Belt</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Microsoft Azure</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">QA/Platform Exp.</div>
+                            <div class="fit-value">Direct Match</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Sprint Predictability</div>
+                            <div class="fit-value">+25% Improvement</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Education</div>
+                            <div class="fit-value">MBA in Progress (USP)</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">Ceremony Facilitation</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Sprint Metrics & Reporting</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Impediment Removal</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Stakeholder Communication</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CANDIDATE 3: Remanroel G. -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">RG</div>
+                        <div>
+                            <div class="card-name">Remanroel G.</div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Philippines &middot; Remote &middot; Fluent English
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$4,000</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Remanroel is the <strong>QA-to-Scrum Master bridge</strong> &mdash; the profile that maps most directly to the product-space background ARC values. With 6 years as a Test Engineer working with Cypress, Postman, JMeter, and Cucumber before transitioning into Scrum mastery, he understands <strong>QA automation, APIs, and integrations from the inside</strong> &mdash; exactly the areas of expertise your teams work closest with. When he facilitates a standup, he's not just tracking status; he's understanding the work. He knows what a flaky build feels like, why a blocked QA ticket can stall a sprint, and how to remove that impediment with context. Based in the Philippines, he works <strong>night shift aligned to US business hours</strong> &mdash; a common and proven model for daily ceremony coverage.
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Scrum Master</div>
+                                <div class="exp-company">Twist Resources Inc.</div>
+                                <div class="exp-date">May 2023 &ndash; Present</div>
+                                <div class="exp-highlight">Cross-functional team coaching &middot; Backlog refinement with POs</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Test Engineer</div>
+                                <div class="exp-company">Twist Resources Inc.</div>
+                                <div class="exp-date">Oct 2019 &ndash; May 2023</div>
+                                <div class="exp-highlight">Automated testing &middot; Client-facing functionality demos &middot; QA leadership</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">IT Consultant & System Integrator</div>
+                                <div class="exp-company">BMWARE Software Development</div>
+                                <div class="exp-date">May 2019 &ndash; Oct 2019</div>
+                                <div class="exp-highlight">Software consulting &middot; System maintenance &middot; Client training</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Certifications & Tools</div>
+                    <div class="tags">
+                        <span class="tag cert">Professional Scrum Master</span>
+                        <span class="tag highlight">Cypress</span>
+                        <span class="tag highlight">Postman</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">JMeter</span>
+                        <span class="tag">Cucumber</span>
+                        <span class="tag">Burp Suite</span>
+                        <span class="tag">Redmine</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">QA Background</div>
+                            <div class="fit-value">6 Years Hands-On</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Team Coaching</div>
+                            <div class="fit-value">Servant Leadership</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Technical Depth</div>
+                            <div class="fit-value">Automated Testing Suite</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">QA Technical Fluency</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 96%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Ceremony Facilitation</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 85%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Backlog Refinement</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Blocker Resolution</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CANDIDATE 4: Chiatanya T. -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">CT</div>
+                        <div>
+                            <div class="card-name">Chiatanya T.</div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Philippines &middot; Remote &middot; Fluent English
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$3,000</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Chiatanya is the <strong>operational problem-solver with an engineer's mind</strong>. His BS in Industrial Engineering from University of the Philippines gives him a natural affinity for the kind of product that ARC builds &mdash; he thinks in systems, not just ceremonies. With 8 years spanning web app development, QA testing, logistics, and digital operations, his instinct isn't just to facilitate &mdash; it's to <strong>optimize the system itself</strong>. He reduced supply costs by 30% in a logistics operation, built automated workflows for cross-functional teams, and managed Scrum across distributed digital teams. At the <strong>most competitive rate in this selection</strong>, he offers strong value for a mid-level hire who will be supported by your senior SM. Based in the Philippines, he works <strong>US-aligned hours</strong> for daily standups and refinements.
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Scrum Master / Project Manager</div>
+                                <div class="exp-company">Masterfile Co. &middot; Media Production</div>
+                                <div class="exp-date">Jan 2022 &ndash; Feb 2025</div>
+                                <div class="exp-highlight">Automated Notion workflows &middot; 20K Discord community &middot; Scrum operations</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Project Manager</div>
+                                <div class="exp-company">Cinnamon Digital &middot; Web App Development</div>
+                                <div class="exp-date">May 2018 &ndash; Jan 2022</div>
+                                <div class="exp-highlight">Web/digital project management &middot; QA testing &middot; Analytics</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Operations Manager</div>
+                                <div class="exp-company">Black Arrow Express &middot; E-Commerce Logistics</div>
+                                <div class="exp-date">Apr 2017 &ndash; May 2018</div>
+                                <div class="exp-highlight">Reduced supply costs by 30% &middot; Nationwide manpower coordination</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Certifications & Tools</div>
+                    <div class="tags">
+                        <span class="tag cert">PSM I</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Notion</span>
+                        <span class="tag">ClickUp</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Google Analytics</span>
+                        <span class="tag">Microsoft Office</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">Engineering Mind</div>
+                            <div class="fit-value">BS Industrial Eng. (UP)</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Value</div>
+                            <div class="fit-value">Most Competitive Rate</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Bias for Action</div>
+                            <div class="fit-value">Workflow Automation</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">Ceremony Facilitation</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 82%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Process Optimization</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 94%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Cross-Functional Coordination</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Sprint Metrics & Reporting</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPARISON ===== -->
+    <section class="why-section fade-in">
+        <div class="editorial-label">At a Glance</div>
+        <h2>Side-by-Side Comparison</h2>
+        <p>Mapped against the core requirements of ARC's Scrum Master role.</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Rachel C.</th>
+                    <th>Vinicius N.</th>
+                    <th>Remanroel G.</th>
+                    <th>Chiatanya T.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>SM Experience</strong></td>
+                    <td>6+ years</td>
+                    <td>5+ years PM / 1 yr SM</td>
+                    <td>2 yrs SM + 6 yrs QA</td>
+                    <td>3 yrs SM/PM + 8 total</td>
+                </tr>
+                <tr>
+                    <td><strong>QA / Platform Teams</strong></td>
+                    <td>AI/ML, Banking</td>
+                    <td class="check">QA Auto & Platform</td>
+                    <td class="check">6 yrs QA Engineering</td>
+                    <td>QA Testing, Web Dev</td>
+                </tr>
+                <tr>
+                    <td><strong>Jira Proficiency</strong></td>
+                    <td class="check">Advanced</td>
+                    <td class="check">Advanced</td>
+                    <td class="check">Advanced</td>
+                    <td>Proficient</td>
+                </tr>
+                <tr>
+                    <td><strong>Certifications</strong></td>
+                    <td>SAFe, Flow</td>
+                    <td class="check">PSM I, PSPO, CAPM, LSSGB</td>
+                    <td>Professional SM</td>
+                    <td>PSM I</td>
+                </tr>
+                <tr>
+                    <td><strong>Metrics & Reporting</strong></td>
+                    <td class="check">Flow Metrics, Power BI</td>
+                    <td>Velocity, Burndown</td>
+                    <td>Performance Analysis</td>
+                    <td>Sprint Metrics, Analytics</td>
+                </tr>
+                <tr>
+                    <td><strong>Multi-Team Capability</strong></td>
+                    <td class="check">7 teams mentored</td>
+                    <td>10-project portfolio</td>
+                    <td>Cross-functional</td>
+                    <td>Distributed teams</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Rate</strong></td>
+                    <td>$3,800</td>
+                    <td>$4,200</td>
+                    <td>$4,000</td>
+                    <td>$3,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Product/Software Bg.</strong></td>
+                    <td>AI/ML, Cloud, Banking</td>
+                    <td class="check">QA Auto & Platform</td>
+                    <td class="check">QA, APIs, Integrations</td>
+                    <td>Web Dev, QA Testing</td>
+                </tr>
+                <tr>
+                    <td><strong>US Eastern Overlap</strong></td>
+                    <td class="check">Full (Brazil, EST-1)</td>
+                    <td class="check">Full (Brazil, EST-1)</td>
+                    <td>Night shift aligned</td>
+                    <td>Night shift aligned</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ===== MEET THE RECRUITING TEAM ===== -->
+    <section class="team-section fade-in">
+        <div class="team-inner">
+            <div class="editorial-label">Your Dedicated Team</div>
+            <h2>Meet the Recruiting Team</h2>
+            <p class="team-subtitle">Every White Glove engagement is led by a dedicated team that understands your business, your culture, and exactly what "the right fit" means for your organization.</p>
+
+            <div class="team-grid">
+                <!-- Jesus Pacheco -->
+                <div class="team-card">
+                    <div class="team-card-top">
+                        <img class="team-photo" src="https://saganrecruitment.com/wp-content/uploads/2025/10/Jesus-Pacheco.jpeg" alt="Jesus Pacheco">
+                    </div>
+                    <div class="team-card-body">
+                        <div class="team-name">Jes&uacute;s Pacheco</div>
+                        <div class="team-role">Head of White Glove Hirings</div>
+                        <div class="team-location">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Argentina
+                        </div>
+                        <p class="team-bio">Leads the White Glove Hiring team with a high-touch, human-centered approach. MIT MAS credential. Passionate about building bridges between people and opportunities &mdash; ensuring every match creates long-term impact.</p>
+                        <a href="mailto:jesus.p@getsagan.com" class="team-email">jesus.p@getsagan.com</a>
+                    </div>
+                </div>
+
+                <!-- Manuel Castaneda -->
+                <div class="team-card">
+                    <div class="team-card-top">
+                        <img class="team-photo" src="https://saganrecruitment.com/wp-content/uploads/2025/08/Manuel.webp" alt="Manuel Castaneda">
+                    </div>
+                    <div class="team-card-body">
+                        <div class="team-name">Manuel Casta&ntilde;eda</div>
+                        <div class="team-role">Recruitment Team Lead</div>
+                        <div class="team-location">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Bogot&aacute;, Colombia
+                        </div>
+                        <p class="team-bio">Manages a talented team of tech, marketing, and creative recruiters. Passionate about building great teams and matching the right talent with the right opportunity for lasting impact.</p>
+                        <a href="mailto:manuel.jaramillo@getsagan.com" class="team-email">manuel.jaramillo@getsagan.com</a>
+                    </div>
+                </div>
+
+                <!-- Noel Balderama -->
+                <div class="team-card">
+                    <div class="team-card-top">
+                        <img class="team-photo" src="https://saganrecruitment.com/wp-content/uploads/2025/08/Noel-Balderama.webp" alt="Noel Balderama">
+                    </div>
+                    <div class="team-card-body">
+                        <div class="team-name">Noel Balderama</div>
+                        <div class="team-role">Technical Recruiter</div>
+                        <div class="team-location">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Philippines
+                        </div>
+                        <p class="team-bio">Seasoned Technical Recruiter specializing in IT recruitment, sourcing, and ATS proficiency. Excels in aligning top talent with organizational needs and is committed to continuous improvement.</p>
+                        <a href="mailto:noel.b@getsagan.com" class="team-email">noel.b@getsagan.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sagan Company Info -->
+            <div class="sagan-info">
+                <div class="sagan-logo-mark">S</div>
+                <div class="sagan-text">
+                    <h3>Powered by Sagan</h3>
+                    <p>Sagan connects skilled professionals from <strong>Latin America, Africa, Asia, the Middle East, Central &amp; Eastern Europe, and more</strong> with leading American companies. Through a curated, high-touch recruiting process, we match exceptional talent to opportunities that align with their goals and strengths &mdash; delivering placements that drive long-term success on both sides.</p>
+                    <div class="sagan-stats">
+                        <div class="sagan-stat"><strong>20,000</strong> Applications / Month</div>
+                        <div class="sagan-stat"><strong>2,000+</strong> Placements</div>
+                        <div class="sagan-stat"><strong>30+</strong> Countries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLOSING / CTA ===== -->
+    <section class="footer-cta">
+        <h2>Ready to <strong>meet your next team member?</strong></h2>
+        <p>We're here to coordinate interviews, answer questions, or refine the selection further.</p>
+        <a href="mailto:jesus.p@getsagan.com" class="footer-contact">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Let's Schedule Next Steps
+        </a>
+        <div class="footer-bottom">
+            <div class="footer-logo">Sagan</div>
+            <div class="footer-note">Prepared exclusively for ARC by ChargeItSpot &middot; February 2026</div>
+        </div>
+    </section>
+
+    <!-- ===== SCROLL ANIMATION ===== -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate strength bars when visible
+        const barObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.strength-bar');
+                    bars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.strength-grid').forEach(el => {
+            barObserver.observe(el);
+        });
+    </script>
+
+</body>
+</html>
