@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering PM Selection | Prepared for ARC by ChargeItSpot</title>
+    <title>Technical PM Selection | Prepared for ARC by ChargeItSpot</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -906,6 +906,68 @@
             font-weight: 700;
         }
 
+        /* ===== BATCH SWITCHER ===== */
+        .batch-switcher {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 0 auto 48px;
+            max-width: 600px;
+        }
+
+        .batch-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: 2px solid var(--arc-gray-light);
+            border-radius: 8px;
+            background: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--arc-gray);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .batch-btn:hover {
+            border-color: var(--arc-gold-soft);
+            color: var(--arc-darkest);
+        }
+
+        .batch-btn.active {
+            background: var(--arc-darkest);
+            border-color: var(--arc-darkest);
+            color: white;
+        }
+
+        .batch-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--arc-gold);
+            color: var(--arc-darkest);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .batch-btn.active .batch-count {
+            background: var(--arc-gold);
+        }
+
+        .batch-panel {
+            transition: opacity 0.3s ease;
+        }
+
+        .batch-panel.hidden {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .team-grid {
                 grid-template-columns: 1fr;
@@ -918,6 +980,17 @@
             }
 
             .sagan-stats {
+                justify-content: center;
+            }
+
+            .batch-switcher {
+                flex-direction: column;
+                gap: 8px;
+                padding: 0 16px;
+            }
+
+            .batch-btn {
+                width: 100%;
                 justify-content: center;
             }
         }
@@ -944,14 +1017,14 @@
                 </div>
             </div>
             <div class="hero-badge">White Glove Talent Selection</div>
-            <h1>Your Next <strong>Technical Agile Partner.</strong><br>Carefully Selected.</h1>
+            <h1>Your Next <strong>Technical Project Manager.</strong><br>Carefully Selected.</h1>
             <p class="hero-subtitle">
-                Six project managers who actually understand what your engineering teams are building. Java, Spring Boot, APIs, system architecture. Not just run ceremonies.
+                Nine project managers who actually understand what your engineering teams are building. Java, Spring Boot, APIs, system architecture. Not just run ceremonies.
             </p>
             <div class="hero-meta">
                 <div class="hero-meta-item">
                     <span class="hero-meta-label">Role</span>
-                    <span class="hero-meta-value">Engineering Project Manager</span>
+                    <span class="hero-meta-value">Technical Project Manager</span>
                 </div>
                 <div class="hero-meta-item">
                     <span class="hero-meta-label">Engagement</span>
@@ -963,7 +1036,7 @@
                 </div>
                 <div class="hero-meta-item">
                     <span class="hero-meta-label">Candidates</span>
-                    <span class="hero-meta-value">6 Presented</span>
+                    <span class="hero-meta-value">9 Presented</span>
                 </div>
             </div>
         </div>
@@ -977,7 +1050,7 @@
             After speaking with Samantha, the Scrum Master model wasn't going to work. Candidates who focused purely on ceremonies and had <strong>no clue what was actually happening technically</strong>? They couldn't speak to Java services, API integration points, or where the system was strong versus fragile. That wasn't going to cut it.
         </p>
         <p>
-            What started as a Scrum Master search became a <strong>Technical Agile Partner. An Engineering Project Manager</strong> who can sit with Platform, QA Automation, and Software Delivery teams and actually understand the work. Someone who knows what a Spring Boot microservice does and why an API contract matters. Not someone who just asks "any blockers?" and moves on.
+            What started as a Scrum Master search became a <strong>Technical Project Manager</strong> who can sit with Platform, QA Automation, and Software Delivery teams and actually understand the work. Someone who knows what a Spring Boot microservice does and why an API contract matters. Not someone who just asks "any blockers?" and moves on.
         </p>
         <p>
             So instead of filtering for ceremony facilitation, we prioritized candidates with <strong>real engineering backgrounds</strong>. Developers who transitioned to PM. Engineering managers with Agile fluency. Technical project leads who've shipped software in Java-heavy environments. We filtered hard on ARC's stack (Java, Spring Boot, React/TypeScript, PostgreSQL, Docker, Kubernetes, AWS/GCP) and <strong>US Eastern hours</strong> overlap.
@@ -992,8 +1065,21 @@
     <section class="candidates-section">
         <div class="candidates-header fade-in">
             <h2>The Selection</h2>
-            <p>Six candidates. All vetted against ARC's technical stack and what Samantha actually needs in the room.</p>
+            <p>Nine candidates across two rounds. All vetted for ARC's technical stack and what Samantha actually needs in the room.</p>
         </div>
+
+        <!-- BATCH SWITCHER -->
+        <div class="batch-switcher fade-in">
+            <button class="batch-btn active" onclick="switchBatch(1)" id="btn-batch-1">
+                First Selection <span class="batch-count">6</span>
+            </button>
+            <button class="batch-btn" onclick="switchBatch(2)" id="btn-batch-2">
+                Second Selection <span class="batch-count">3</span>
+            </button>
+        </div>
+
+        <!-- BATCH 1: First Selection -->
+        <div id="batch-1" class="batch-panel">
 
         <!-- CANDIDATE 1: Isaac K. ★ Top Pick -->
         <div class="candidate-card fade-in">
@@ -1629,10 +1715,345 @@
                 </div>
             </div>
         </div>
+
+        </div><!-- /batch-1 -->
+
+        <!-- BATCH 2: Second Selection -->
+        <div id="batch-2" class="batch-panel hidden">
+
+        <!-- CANDIDATE 7: Karl V. -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">KV</div>
+                        <div>
+                            <div class="card-name">Karl V.</div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Philippines &middot; Remote &middot; Fluent English
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$1,839</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Karl has a <strong>BS in Computer Engineering</strong> and 7+ years running technical projects in telecom and IT. Most recently he led digital transformation projects at Lancaster Technology: fiber optic cable deployments, data center builds, managing <strong>20+ team members and vendors</strong>. Before that, 6 years at Concentrix as a <strong>UCaaS and SaaS Project Manager</strong>, implementing communication platforms and running client adoption. He knows <strong>AWS, GCP, Azure</strong>, and works across Jira, Asana, Monday.com, and MS Project. Runs Agile, Waterfall, Scrum. Based in the Philippines, works <strong>US-aligned hours</strong>. At <strong>$1,839/month</strong>, he's the lowest rate on this list by a wide margin.
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Construction &amp; Technical Project Manager</div>
+                                <div class="exp-company">Lancaster Technology &middot; Digital Infrastructure</div>
+                                <div class="exp-date">Oct 2023 &ndash; Nov 2024</div>
+                                <div class="exp-highlight">Fiber optic &amp; data center projects &middot; 20+ team members &middot; Vendor management</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">UCaaS / SaaS Project Manager</div>
+                                <div class="exp-company">Concentrix &middot; Technology Services</div>
+                                <div class="exp-date">Mar 2017 &ndash; Jul 2023</div>
+                                <div class="exp-highlight">UCaaS/SaaS/CCaaS implementations &middot; Client training &middot; Platform adoption</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Consultant</div>
+                                <div class="exp-company">Convergys Philippines &middot; Telecom</div>
+                                <div class="exp-date">Mar 2016 &ndash; Dec 2016</div>
+                                <div class="exp-highlight">Telecom solutions &middot; Enterprise consulting</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Technical Stack &amp; Tools</div>
+                    <div class="tags">
+                        <span class="tag highlight">AWS</span>
+                        <span class="tag highlight">GCP</span>
+                        <span class="tag highlight">Azure</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Asana</span>
+                        <span class="tag">Monday.com</span>
+                        <span class="tag">MS Project</span>
+                        <span class="tag">SharePoint</span>
+                        <span class="tag">Salesforce</span>
+                        <span class="tag cert">BS Computer Engineering</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">Technical Foundation</div>
+                            <div class="fit-value">BS Computer Engineering</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Cloud Platforms</div>
+                            <div class="fit-value">AWS, GCP, Azure</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Team Scale</div>
+                            <div class="fit-value">20+ Members, Vendor Mgmt</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">Cloud Platform Knowledge</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 82%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Vendor &amp; Stakeholder Management</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">SaaS/UCaaS Implementation</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Agile Delivery</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CANDIDATE 8: Ebinehita I. -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">EI</div>
+                        <div>
+                            <div class="card-name">Ebinehita I.</div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Nigeria &middot; Remote &middot; Fluent English
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$5,500</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Ebinehita is the <strong>most heavily certified candidate</strong> in this batch. PMP, SAFe, Professional Scrum Master. Currently Senior Scrum Master at Tight Line (Internet Brands/Avvo), where she's led <strong>35+ initiatives with a 100% completion rate</strong> and improved user sessions by 23%. Before that, Senior Program Manager at Interswitch (fintech), running regulated payout and remittance platforms with API-led integrations. And at MTN Nigeria she did something interesting: integrated <strong>OpenAI into their Zigi chatbot</strong>, cutting response times by over 100%. She also ran a pricing initiative there that drove a <strong>51.5% revenue increase</strong>. Her background is Economics, not engineering, but the results she's produced are hard to argue with. At <strong>$5,500/month</strong> she's above budget range, worth flagging. Based in Nigeria with <strong>flexible hours</strong>.
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Senior Scrum Master</div>
+                                <div class="exp-company">Tight Line (Internet Brands / Avvo) &middot; Internet</div>
+                                <div class="exp-date">Feb 2025 &ndash; Present</div>
+                                <div class="exp-highlight">35+ initiatives &middot; 100% completion &middot; 23% user session improvement</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Senior Program Manager</div>
+                                <div class="exp-company">Interswitch Group &middot; Fintech</div>
+                                <div class="exp-date">Mar 2024 &ndash; Feb 2025</div>
+                                <div class="exp-highlight">Regulated payout platforms &middot; API integrations &middot; Partner onboarding</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Senior Project Manager</div>
+                                <div class="exp-company">MTN Nigeria &middot; Telecommunications</div>
+                                <div class="exp-date">Mar 2022 &ndash; Feb 2024</div>
+                                <div class="exp-highlight">OpenAI chatbot integration &middot; 51.5% revenue increase &middot; Data delivery optimization</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Certifications &amp; Tools</div>
+                    <div class="tags">
+                        <span class="tag cert">PMP</span>
+                        <span class="tag cert">SAFe</span>
+                        <span class="tag cert">Professional Scrum Master</span>
+                        <span class="tag highlight">Jira</span>
+                        <span class="tag highlight">Postman</span>
+                        <span class="tag">MS Project</span>
+                        <span class="tag">Youtrack</span>
+                        <span class="tag">Airtable</span>
+                        <span class="tag">Trello</span>
+                        <span class="tag">API Integrations</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">Certifications</div>
+                            <div class="fit-value">PMP + SAFe + PSM</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Fintech/Telecom</div>
+                            <div class="fit-value">Interswitch, MTN Nigeria</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Impact Metrics</div>
+                            <div class="fit-value">51.5% Revenue, 100% Completion</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">Agile Governance &amp; Certs</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 95%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">API &amp; Integration Understanding</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 86%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Enterprise Program Delivery</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Stakeholder Communication</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CANDIDATE 9: Rodrigo S. -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">RS</div>
+                        <div>
+                            <div class="card-name">Rodrigo S.</div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Mexico &middot; Remote &middot; Advanced English &amp; Spanish
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$4,000</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Rodrigo comes from a <strong>data and business analysis background</strong>. BA in Financial Administration, about 5 years of combined experience. He was a Scrum Master and IT PM at Optimizaciones Humanas for two years, then moved to Rappi as a Key Account Manager. His strongest angle is the data side: <strong>Power BI, Tableau, SQL, Python, R</strong>. He also holds Scrum Master Professional and PMP Competence certifications, plus IBM Data Science certs. He reports a <strong>98% project success rate</strong>. He's younger and less senior than the others, but he's strong on KPI tracking, OKR frameworks, and data visualization. Based in Mexico with <strong>full US time zone alignment</strong>. Bilingual English/Spanish.
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Key Account Manager</div>
+                                <div class="exp-company">Rappi &middot; Commercial Operations</div>
+                                <div class="exp-date">2024 &ndash; 2025</div>
+                                <div class="exp-highlight">Account management &middot; Stakeholder relations &middot; Operations</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Scrum Master / IT Project Manager</div>
+                                <div class="exp-company">Optimizaciones Humanas &middot; IT Services</div>
+                                <div class="exp-date">2022 &ndash; 2024</div>
+                                <div class="exp-highlight">Agile delivery &middot; 98% success rate &middot; KPI/OKR frameworks</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Business Analyst / Operations Analyst</div>
+                                <div class="exp-company">Bodegas Bonart &middot; Business Analysis</div>
+                                <div class="exp-date">2020 &ndash; 2022</div>
+                                <div class="exp-highlight">Data analysis &middot; Process optimization &middot; Reporting</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Certifications &amp; Tools</div>
+                    <div class="tags">
+                        <span class="tag cert">Scrum Master Professional</span>
+                        <span class="tag cert">PMP Competence</span>
+                        <span class="tag cert">IBM Data Science</span>
+                        <span class="tag highlight">Power BI</span>
+                        <span class="tag highlight">SQL</span>
+                        <span class="tag highlight">Python</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">R</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Trello</span>
+                        <span class="tag">Notion</span>
+                        <span class="tag">MS Project</span>
+                        <span class="tag">HubSpot</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">Data Skills</div>
+                            <div class="fit-value">Power BI, SQL, Python, R</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Agile Certs</div>
+                            <div class="fit-value">SM Professional + PMP</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Time Zone</div>
+                            <div class="fit-value">Full US Alignment (Mexico)</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">Data Analysis &amp; Visualization</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Agile Delivery</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 82%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">KPI / OKR Tracking</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Stakeholder Communication</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 84%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div><!-- /batch-2 -->
+
     </section>
 
     <!-- ===== COMPARISON ===== -->
-    <section class="why-section fade-in">
+    <section class="why-section fade-in" id="comparison-batch-1">
         <div class="editorial-label">At a Glance</div>
         <h2>Side-by-Side Comparison</h2>
         <p>How each candidate stacks up against what ARC actually needs.</p>
@@ -1735,6 +2156,80 @@
         </table>
     </section>
 
+    <!-- ===== COMPARISON BATCH 2 ===== -->
+    <section class="why-section fade-in batch-panel hidden" id="comparison-batch-2">
+        <div class="editorial-label">At a Glance</div>
+        <h2>Side-by-Side Comparison</h2>
+        <p>How each second-round candidate stacks up against what ARC needs.</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Karl V.</th>
+                    <th>Ebinehita I.</th>
+                    <th>Rodrigo S.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Technical Background</strong></td>
+                    <td class="check">BS Computer Eng. (7+ yrs)</td>
+                    <td>BSc Economics (4+ yrs visible)</td>
+                    <td>BA Financial Admin (~5 yrs)</td>
+                </tr>
+                <tr>
+                    <td><strong>Java / Spring Boot</strong></td>
+                    <td>Not hands-on, cloud-aware</td>
+                    <td>Not hands-on, API-level</td>
+                    <td>Not hands-on</td>
+                </tr>
+                <tr>
+                    <td><strong>API &amp; Integration</strong></td>
+                    <td>UCaaS/SaaS platform integrations</td>
+                    <td class="check">API integrations, Postman, fintech</td>
+                    <td>Data integrations, HubSpot</td>
+                </tr>
+                <tr>
+                    <td><strong>Cloud / Infrastructure</strong></td>
+                    <td class="check">AWS, GCP, Azure</td>
+                    <td>Platform-level awareness</td>
+                    <td>Limited</td>
+                </tr>
+                <tr>
+                    <td><strong>Jira Proficiency</strong></td>
+                    <td>Jira, Asana, Monday.com</td>
+                    <td class="check">Jira, MS Project, Youtrack</td>
+                    <td>Jira, Trello, Notion, MS Project</td>
+                </tr>
+                <tr>
+                    <td><strong>Agile / Scrum Certs</strong></td>
+                    <td>Agile/Scrum practitioner</td>
+                    <td class="check">PMP + SAFe + PSM</td>
+                    <td class="check">SM Professional + PMP Competence</td>
+                </tr>
+                <tr>
+                    <td><strong>Engineering Partnership</strong></td>
+                    <td>Vendor/platform management</td>
+                    <td>Program governance, API understanding</td>
+                    <td>Data/analytics angle</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Rate</strong></td>
+                    <td class="check">$1,839</td>
+                    <td>$5,500</td>
+                    <td>$4,000</td>
+                </tr>
+                <tr>
+                    <td><strong>US Eastern Overlap</strong></td>
+                    <td>Night shift aligned (PH)</td>
+                    <td>Flexible hours (Nigeria)</td>
+                    <td class="check">Full overlap (Mexico)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
     <!-- ===== MEET THE RECRUITING TEAM ===== -->
     <section class="team-section fade-in">
         <div class="team-inner">
@@ -1821,12 +2316,13 @@
         </a>
         <div class="footer-bottom">
             <div class="footer-logo">Sagan</div>
-            <div class="footer-note">Prepared exclusively for ARC by ChargeItSpot &middot; February 2026</div>
+            <div class="footer-note">Prepared exclusively for ARC by ChargeItSpot &middot; March 2026</div>
         </div>
     </section>
 
-    <!-- ===== SCROLL ANIMATION ===== -->
+    <!-- ===== SCRIPTS ===== -->
     <script>
+        // Fade-in observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1861,6 +2357,33 @@
         document.querySelectorAll('.strength-grid').forEach(el => {
             barObserver.observe(el);
         });
+
+        // Batch switcher
+        function switchBatch(n) {
+            document.getElementById('batch-1').classList.toggle('hidden', n !== 1);
+            document.getElementById('batch-2').classList.toggle('hidden', n !== 2);
+            document.getElementById('comparison-batch-1').classList.toggle('hidden', n !== 1);
+            document.getElementById('comparison-batch-2').classList.toggle('hidden', n !== 2);
+            document.getElementById('btn-batch-1').classList.toggle('active', n === 1);
+            document.getElementById('btn-batch-2').classList.toggle('active', n === 2);
+
+            // Re-trigger fade-in animations on the newly visible batch
+            var activePanel = document.getElementById('batch-' + n);
+            activePanel.querySelectorAll('.fade-in').forEach(function(el) {
+                el.classList.remove('visible');
+                observer.observe(el);
+            });
+            activePanel.querySelectorAll('.strength-grid').forEach(function(el) {
+                barObserver.observe(el);
+            });
+
+            // Also re-trigger on the comparison table
+            var activeComparison = document.getElementById('comparison-batch-' + n);
+            activeComparison.classList.remove('visible');
+            observer.observe(activeComparison);
+
+            document.querySelector('.candidates-header').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 
 </body>
