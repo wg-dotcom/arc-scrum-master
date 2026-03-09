@@ -968,7 +968,59 @@
             display: none;
         }
 
+        /* ===== CARD ACTION BUTTONS ===== */
+        .card-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--arc-gray-light);
+        }
+
+        .card-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .card-action-btn.primary {
+            background: var(--arc-darkest);
+            color: white;
+        }
+
+        .card-action-btn.primary:hover {
+            background: var(--arc-gold-deep);
+            color: var(--arc-darkest);
+        }
+
+        .card-action-btn.secondary {
+            background: white;
+            color: var(--arc-darkest);
+            border: 2px solid var(--arc-gray-light);
+        }
+
+        .card-action-btn.secondary:hover {
+            border-color: var(--arc-gold);
+            color: var(--arc-darkest);
+        }
+
         @media (max-width: 768px) {
+            .card-actions {
+                flex-direction: column;
+            }
+
+            .card-action-btn {
+                justify-content: center;
+                width: 100%;
+            }
+
             .team-grid {
                 grid-template-columns: 1fr;
             }
@@ -1019,7 +1071,7 @@
             <div class="hero-badge">White Glove Talent Selection</div>
             <h1>Your Next <strong>Technical Project Manager.</strong><br>Carefully Selected.</h1>
             <p class="hero-subtitle">
-                Nine project managers who actually understand what your engineering teams are building. Java, Spring Boot, APIs, system architecture. Not just run ceremonies.
+                Ten project managers who actually understand what your engineering teams are building. Java, Spring Boot, APIs, system architecture. Not just run ceremonies.
             </p>
             <div class="hero-meta">
                 <div class="hero-meta-item">
@@ -1036,7 +1088,7 @@
                 </div>
                 <div class="hero-meta-item">
                     <span class="hero-meta-label">Candidates</span>
-                    <span class="hero-meta-value">9 Presented</span>
+                    <span class="hero-meta-value">10 Presented</span>
                 </div>
             </div>
         </div>
@@ -1065,7 +1117,7 @@
     <section class="candidates-section">
         <div class="candidates-header fade-in">
             <h2>The Selection</h2>
-            <p>Nine candidates across two rounds. All vetted for ARC's technical stack and what Samantha actually needs in the room.</p>
+            <p>Ten candidates across two rounds. All vetted for ARC's technical stack and what Samantha actually needs in the room.</p>
         </div>
 
         <!-- BATCH SWITCHER -->
@@ -1074,7 +1126,7 @@
                 First Selection <span class="batch-count">6</span>
             </button>
             <button class="batch-btn" onclick="switchBatch(2)" id="btn-batch-2">
-                Second Selection <span class="batch-count">3</span>
+                Second Selection <span class="batch-count">4</span>
             </button>
         </div>
 
@@ -1736,13 +1788,13 @@
                         </div>
                     </div>
                     <div class="card-rate">
-                        <div class="card-rate-amount">$1,839</div>
+                        <div class="card-rate-amount">$2,000</div>
                         <div class="card-rate-period">USD / Month</div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-narrative">
-                        Karl has a <strong>BS in Computer Engineering</strong> and 7+ years running technical projects in telecom and IT. Most recently he led digital transformation projects at Lancaster Technology: fiber optic cable deployments, data center builds, managing <strong>20+ team members and vendors</strong>. Before that, 6 years at Concentrix as a <strong>UCaaS and SaaS Project Manager</strong>, implementing communication platforms and running client adoption. He knows <strong>AWS, GCP, Azure</strong>, and works across Jira, Asana, Monday.com, and MS Project. Runs Agile, Waterfall, Scrum. Based in the Philippines, works <strong>US-aligned hours</strong>. At <strong>$1,839/month</strong>, he's the lowest rate on this list by a wide margin.
+                        Karl has a <strong>BS in Computer Engineering</strong> and 7+ years running technical projects in telecom and IT. Most recently he led digital transformation projects at Lancaster Technology: fiber optic cable deployments, data center builds, managing <strong>20+ team members and vendors</strong>. Before that, 6 years at Concentrix as a <strong>UCaaS and SaaS Project Manager</strong>, implementing communication platforms and running client adoption. He knows <strong>AWS, GCP, Azure</strong>, and works across Jira, Asana, Monday.com, and MS Project. Runs Agile, Waterfall, Scrum. Based in the Philippines, works <strong>US-aligned hours</strong>. At <strong>$2,000/month</strong>, he's the lowest rate on this list by a wide margin.
                     </div>
 
                     <div class="card-section-title">Experience</div>
@@ -2048,6 +2100,140 @@
             </div>
         </div>
 
+        <!-- CANDIDATE 10: Giovana ★ Strong Match -->
+        <div class="candidate-card fade-in">
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-identity">
+                        <div class="card-avatar">G</div>
+                        <div>
+                            <div class="card-name">Giovana <span class="match-badge strong">&#9733; Strong Match</span></div>
+                            <div class="card-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Argentina &middot; Remote &middot; US Work Eligible &middot; Trilingual (EN/ES/PT)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-rate">
+                        <div class="card-rate-amount">$5,000</div>
+                        <div class="card-rate-period">USD / Month</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-narrative">
+                        Giovana started in <strong>engineering</strong>. Not software. Actual engineering. She was a QA Engineer on <strong>nuclear power devices</strong> at IMPSA, working under ASME III standards and Lean Manufacturing protocols. Then she got an MBA, a Master's in Project Management, multiple Scrum certifications, and pivoted into Agile PM. Now she runs <strong>multiple Scrum teams at Teracode</strong> for clients like <strong>BOSE, Medtronic, and ADP</strong>. Supply Chain, Marketing, Finance, Data. She's done <strong>SAFe PI Planning</strong> across distributed teams, managed staff augmentation programs, and coached Product Owners on backlog health. Before Teracode she ran a <strong>13-person cross-functional team</strong> at Revai and worked as an <strong>Agile Coach at Invoition</strong>, implementing Scrum from scratch. Trilingual. Eligible to work in the US. This is the kind of person who earns engineering trust because she's lived on that side of the table.
+                    </div>
+
+                    <div class="card-section-title">Experience</div>
+                    <div class="experience-list">
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Sr. Project Manager &amp; Scrum Master</div>
+                                <div class="exp-company">Teracode &middot; BOSE, Medtronic, ADP, Evolv, US Boiler</div>
+                                <div class="exp-date">Aug 2022 &ndash; Present</div>
+                                <div class="exp-highlight">Multiple Scrum teams &middot; SAFe PI Planning &middot; Jira, Confluence, Azure DevOps</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Project Manager &amp; Scrum Master</div>
+                                <div class="exp-company">Slingr &middot; Client: ADP</div>
+                                <div class="exp-date">2021 &ndash; 2022</div>
+                                <div class="exp-highlight">3 Scrum teams &middot; App development &middot; PI Planning coordination</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Scrum Master &amp; Agile Coach</div>
+                                <div class="exp-company">Invoition &middot; Agile Transformation</div>
+                                <div class="exp-date">2019 &ndash; 2020</div>
+                                <div class="exp-highlight">Implemented Scrum from scratch &middot; Coached POs and dev teams</div>
+                            </div>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+                            <div class="exp-content">
+                                <div class="exp-role">Quality Control Engineer</div>
+                                <div class="exp-company">IMPSA &middot; Nuclear Power Devices</div>
+                                <div class="exp-date">2012 &ndash; 2014</div>
+                                <div class="exp-highlight">ASME III standards &middot; Lean Manufacturing &middot; QA on nuclear components</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Technical Stack &amp; Tools</div>
+                    <div class="tags">
+                        <span class="tag highlight">Jira</span>
+                        <span class="tag highlight">Confluence</span>
+                        <span class="tag highlight">Azure DevOps</span>
+                        <span class="tag">Jira Align</span>
+                        <span class="tag">Redmine</span>
+                        <span class="tag">SAFe PI Planning</span>
+                        <span class="tag">Kanban</span>
+                        <span class="tag cert">Scrum Master (ISI + NTU)</span>
+                        <span class="tag cert">Google PM Certificate</span>
+                        <span class="tag cert">Engineering Degree</span>
+                        <span class="tag cert">MBA</span>
+                        <span class="tag cert">Master in PM</span>
+                    </div>
+
+                    <div class="card-section-title">ARC Fit Indicators</div>
+                    <div class="fit-grid">
+                        <div class="fit-item">
+                            <div class="fit-label">Technical Foundation</div>
+                            <div class="fit-value">Engineering + QA on Nuclear Devices</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Enterprise Clients</div>
+                            <div class="fit-value">BOSE, Medtronic, ADP</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Agile Scale</div>
+                            <div class="fit-value">SAFe PI Planning, Multi-team SM</div>
+                        </div>
+                        <div class="fit-item">
+                            <div class="fit-label">Certifications</div>
+                            <div class="fit-value">Scrum Master, Google PM, MBA</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section-title">Strength Profile</div>
+                    <div class="strength-grid">
+                        <div class="strength-item">
+                            <span class="strength-label">Agile &amp; Scrum Delivery</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 95%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Engineering Partnership</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">SAFe &amp; Scaled Frameworks</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+                        </div>
+                        <div class="strength-item">
+                            <span class="strength-label">Stakeholder Communication</span>
+                            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="https://drive.google.com/file/d/1s4CBurfET2lHvJV0zoHw2zgFC3M0zIip/view" target="_blank" class="card-action-btn primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            View Resume
+                        </a>
+                        <a href="https://drive.google.com/file/d/1yhZsk0l6z7Q6YsTjzG3Ij5khT_rn8iPf/view" target="_blank" class="card-action-btn secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            Watch Intro Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         </div><!-- /batch-2 -->
 
     </section>
@@ -2143,15 +2329,6 @@
                     <td>$4,000</td>
                     <td>$4,000</td>
                 </tr>
-                <tr>
-                    <td><strong>US Eastern Overlap</strong></td>
-                    <td>4-hour overlap (Kenya)</td>
-                    <td>Night shift aligned (PH)</td>
-                    <td class="check">Full overlap (Colombia)</td>
-                    <td>Night shift aligned (PH)</td>
-                    <td>EU hours, morning overlap</td>
-                    <td>EU hours, morning overlap</td>
-                </tr>
             </tbody>
         </table>
     </section>
@@ -2169,6 +2346,7 @@
                     <th>Karl V.</th>
                     <th>Ebinehita I.</th>
                     <th>Rodrigo S.</th>
+                    <th>Giovana &star;</th>
                 </tr>
             </thead>
             <tbody>
@@ -2177,54 +2355,56 @@
                     <td class="check">BS Computer Eng. (7+ yrs)</td>
                     <td>BSc Economics (4+ yrs visible)</td>
                     <td>BA Financial Admin (~5 yrs)</td>
+                    <td class="check">Engineering + MBA + Master PM (10+ yrs)</td>
                 </tr>
                 <tr>
                     <td><strong>Java / Spring Boot</strong></td>
                     <td>Not hands-on, cloud-aware</td>
                     <td>Not hands-on, API-level</td>
                     <td>Not hands-on</td>
+                    <td>Not hands-on, engineering QA roots</td>
                 </tr>
                 <tr>
                     <td><strong>API &amp; Integration</strong></td>
                     <td>UCaaS/SaaS platform integrations</td>
                     <td class="check">API integrations, Postman, fintech</td>
                     <td>Data integrations, HubSpot</td>
+                    <td class="check">IoT, Data &amp; Analytics, Hardware integrations</td>
                 </tr>
                 <tr>
                     <td><strong>Cloud / Infrastructure</strong></td>
                     <td class="check">AWS, GCP, Azure</td>
                     <td>Platform-level awareness</td>
                     <td>Limited</td>
+                    <td>Azure DevOps, Jira Align</td>
                 </tr>
                 <tr>
                     <td><strong>Jira Proficiency</strong></td>
                     <td>Jira, Asana, Monday.com</td>
                     <td class="check">Jira, MS Project, Youtrack</td>
                     <td>Jira, Trello, Notion, MS Project</td>
+                    <td class="check">Jira, Confluence, Azure DevOps, Jira Align</td>
                 </tr>
                 <tr>
                     <td><strong>Agile / Scrum Certs</strong></td>
                     <td>Agile/Scrum practitioner</td>
                     <td class="check">PMP + SAFe + PSM</td>
                     <td class="check">SM Professional + PMP Competence</td>
+                    <td class="check">Scrum Master (x2) + Google PM + SAFe PI</td>
                 </tr>
                 <tr>
                     <td><strong>Engineering Partnership</strong></td>
                     <td>Vendor/platform management</td>
                     <td>Program governance, API understanding</td>
                     <td>Data/analytics angle</td>
+                    <td class="check">QA Engineer on nuclear devices, coaches dev teams</td>
                 </tr>
                 <tr>
                     <td><strong>Monthly Rate</strong></td>
-                    <td class="check">$1,839</td>
+                    <td class="check">$2,000</td>
                     <td>$5,500</td>
                     <td>$4,000</td>
-                </tr>
-                <tr>
-                    <td><strong>US Eastern Overlap</strong></td>
-                    <td>Night shift aligned (PH)</td>
-                    <td>Flexible hours (Nigeria)</td>
-                    <td class="check">Full overlap (Mexico)</td>
+                    <td>$5,000</td>
                 </tr>
             </tbody>
         </table>
